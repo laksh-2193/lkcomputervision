@@ -1,6 +1,0 @@
-setup.py
-lkcomputervision.egg-info/PKG-INFO
-lkcomputervision.egg-info/SOURCES.txt
-lkcomputervision.egg-info/dependency_links.txt
-lkcomputervision.egg-info/requires.txt
-lkcomputervision.egg-info/top_level.txt
