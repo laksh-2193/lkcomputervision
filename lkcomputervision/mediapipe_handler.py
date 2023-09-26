@@ -16,7 +16,7 @@ class MediaPipeHandler:
 
     def trackHands(self, frame, draw=True):
         results = self.hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        handLandMark = {}
+        hand_land_mark = {}
 
         if results.multi_hand_landmarks:
             for idx, landmarks in enumerate(results.multi_hand_landmarks):
@@ -24,10 +24,10 @@ class MediaPipeHandler:
                 for point, landmark in enumerate(landmarks.landmark):
                     x, y, z = landmark.x, landmark.y, landmark.z
                     landMarks[point] = {"x": x, "y": y, "z": z}
-                handLandMark = landMarks
+                hand_land_mark = landMarks
                 if draw:
                     self.mp_drawing.draw_landmarks(frame, landmarks, self.mp_hands.HAND_CONNECTIONS)
-        return {"frame": frame, "landmarks": handLandMark}
+        return {"frame": frame, "landmarks": hand_land_mark}
 
     def detectFace(self, frame, draw=True):
         with self.mp_face_detection.FaceDetection(min_detection_confidence=0.5) as face_detection:
