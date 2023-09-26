@@ -12,7 +12,7 @@ pip install lkcomputervision
 
 # Usage
 
-Import and initialise the package
+Import and initialize the package
 ```commandline
 from lkcomputervision import MediaPipeHandler
 mediapipe_handler = MediaPipeHandler()
