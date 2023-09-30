@@ -17,11 +17,12 @@ Import and initialize the package
 from lkcomputervision import MediaPipeHandler
 mediapipe_handler = MediaPipeHandler()
 ```
-**Note**: `draw` paramater controls the annotation of the frame, by default it is set to **true**
+**Note** : `draw` paramater controls the annotation of the frame, by default it is set to **true**
 
 ## Hand Tracking
 
 Hand tracking allows you to detect and track hands in a given frame. You can also visualize the hand landmarks.
+<br>
 <br>
 ![](https://developers.google.com/static/mediapipe/images/solutions/hand-landmarks.png)
 ```python
