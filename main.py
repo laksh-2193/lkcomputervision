@@ -1,5 +1,7 @@
 import cv2
 from lkcomputervision import MediaPipeHandler
+#code not working
+
 
 # Initialize the MediaPipeHandler
 mp = MediaPipeHandler()
