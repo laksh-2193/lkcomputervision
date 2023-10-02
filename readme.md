@@ -2,6 +2,8 @@
 
 `lkcomputervision` is a Python package that provides a convenient interface for performing computer vision tasks using the [MediaPipe](https://developers.google.com/mediapipe/solutions/guide) library. It allows you to easily integrate hand tracking, face detection, face mesh analysis, and body pose estimation into your computer vision applications.
 
+Resources: [https://lakshaykumar.tech/devsprint](https://lakshaykumar.tech/devsprint)
+
 ## Installation
 
 To install `lkcomputervision`, you can use pip:
