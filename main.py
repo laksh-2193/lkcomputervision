@@ -12,13 +12,17 @@ while True:
     ret, frame = cap.read()
 
     if not ret:
-        break  # Break the loop if we can't read a frame
+        break
 
     # Process the frame to track hands
-    result = mp.trackHands(frame)
+    #result = mp.trackHands(frame)
+    #result = mp.detectFace(frame)
+    #result = mp.detectPose(frame)
+    result = mp.faceMesh(frame)
 
     # Retrieve the frame with hand landmarks drawn on it
     frame_with_landmarks = result["frame"]
+    print(result["landmarks"])
 
     # Display the frame with landmarks
     cv2.imshow("Hand Tracking", frame_with_landmarks)
