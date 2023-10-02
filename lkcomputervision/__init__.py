@@ -1,1 +1,1 @@
-from .mediapipe_handler import MediaPipeHandler
+from .mediapipe_handler import faceMesh, detectFace, detectPose, trackHands, detectAll
