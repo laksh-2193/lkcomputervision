@@ -9,13 +9,17 @@ class MediaPipeHandler:
         self.mp_face_detection = mp.solutions.face_detection
         self.mp_face_mesh = mp.solutions.face_mesh
 
-        self.hands = self.mp_hands.Hands()
+        ##The hands object that the media pipe handler will use internally.
+        self.__hands = None
         self.pose = self.mp_pose.Pose()
         self.face_detection = self.mp_face_detection.FaceDetection()
         self.face_mesh = self.mp_face_mesh.FaceMesh()
 
-    def trackHands(self, frame, draw=True):
-        results = self.hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+    def trackHands(self, frame, draw=True, min_confidence_of_detection=0.5, min_confidence_of_tracking=0.5):
+
+        self.__hands = self.mp_hands.Hands(min_detection_confidence=min_confidence_of_detection, min_tracking_confidence=min_confidence_of_tracking)
+
+        results = self.__hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
         hand_land_mark = {}
 
         if results.multi_hand_landmarks:
