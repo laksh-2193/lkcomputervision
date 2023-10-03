@@ -11,7 +11,7 @@ class MediaPipeHandler:
 
         self.hands = self.mp_hands.Hands()
         self.pose = self.mp_pose.Pose()
-        self.face_detection = self.mp_face_detection.FaceDetection()
+        self.__face_detection = None
         self.face_mesh = self.mp_face_mesh.FaceMesh()
 
     def trackHands(self, frame, draw=True):
@@ -28,9 +28,10 @@ class MediaPipeHandler:
                 if draw:
                     self.mp_drawing.draw_landmarks(frame, landmarks, self.mp_hands.HAND_CONNECTIONS)
         return {"frame": frame, "landmarks": hand_land_mark}
+    def detectFace(self, frame, draw=True, min_confidence_of_detection=0.5):
 
-    def detectFace(self, frame, draw=True):
-        with self.mp_face_detection.FaceDetection(min_detection_confidence=0.5) as face_detection:
+        self.__face_detection = self.mp_face_detection.FaceDetection(min_detection_confidence=min_confidence_of_detection)
+        with self.mp_face_detection.FaceDetection(min_detection_confidence=min_confidence_of_detection) as face_detection:
             results = face_detection.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
             faceLms = {}
 
